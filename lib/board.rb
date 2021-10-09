@@ -8,8 +8,6 @@ class Board
 
   def initialize
     @cells = Array.new(SIZE**2) { Cell.new }
-    @cells.sample(INITIAL_LIVING_CELL_COUNT).each { |cell|
-      cell.birth
-    }
+    @cells.sample(INITIAL_LIVING_CELL_COUNT).each { |cell| cell.birth }
   end
 end
