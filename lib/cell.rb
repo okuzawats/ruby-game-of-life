@@ -5,7 +5,11 @@ class Cell
     @isLiving = false
   end
 
-  def giveLife
+  def birth
     @isLiving = true
+  end
+
+  def death
+    @isLiving = false
   end
 end

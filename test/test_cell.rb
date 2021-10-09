@@ -7,9 +7,16 @@ class TestCell < Minitest::Test
     assert_equal false, target.isLiving
   end
 
-  def test_giveLife
+  def test_birth
     target = Cell.new
-    target.giveLife
+    target.birth
     assert_equal true, target.isLiving
+  end
+
+  def test_death
+    target = Cell.new
+    target.birth
+    target.death
+    assert_equal false, target.isLiving
   end
 end
