@@ -6,4 +6,10 @@ class TestCell < Minitest::Test
     target = Cell.new
     assert_equal false, target.isLiving
   end
+
+  def test_giveLife
+    target = Cell.new
+    target.giveLife
+    assert_equal true, target.isLiving
+  end
 end
