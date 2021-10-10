@@ -1,7 +1,7 @@
 class Cell
 
-  def initialize
-    @is_living = false
+  def initialize(is_living = false)
+    @is_living = is_living
     @is_living_next = false
     @neighbors = []
   end
