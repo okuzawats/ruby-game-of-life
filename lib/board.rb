@@ -1,7 +1,9 @@
 require_relative './cell'
 
 class Board
-  CELLS = 32**2
+  WIDTH = 32
+  HEIGHT = 32
+  CELLS = WIDTH * HEIGHT
   INITIAL_LIVING_CELLS = 16
 
   def initialize
