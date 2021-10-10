@@ -47,9 +47,9 @@ class Board
   end
 
   def display
-    (0...HEIGHT).each { |i|
-      (0...WIDTH).each { |j|
-        index = i * WIDTH + j
+    (0...HEIGHT).each { |j|
+      (0...WIDTH).each { |i|
+        index = j * WIDTH + i
         print @cells[index].display
       }
       puts ''
