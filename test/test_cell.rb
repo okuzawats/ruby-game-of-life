@@ -2,8 +2,14 @@ require 'minitest/autorun'
 require_relative '../lib/cell'
 
 class TestCell < Minitest::Test
-  def test_initialized
-    target = Cell.new
+  def test_initialized_true
+    target = Cell.new(true)
+    assert_equal true, target.alive?
+    assert_equal 0, target.count_neighbor
+  end
+
+  def test_initialized_false
+    target = Cell.new(false)
     assert_equal false, target.alive?
     assert_equal 0, target.count_neighbor
   end
