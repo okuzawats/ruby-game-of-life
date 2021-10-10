@@ -1,11 +1,11 @@
 require_relative './cell'
 
 class Board
-  SIZE = 32
+  CELLS = 32**2
   INITIAL_LIVING_CELLS = 16
 
   def initialize
-    @cells = (Array.new(INITIAL_LIVING_CELLS) { true } + Array.new(SIZE**2 - INITIAL_LIVING_CELLS) { false })
+    @cells = (Array.new(INITIAL_LIVING_CELLS, true) + Array.new(CELLS - INITIAL_LIVING_CELLS, false))
       .shuffle
       .map { |is_living| Cell.new(is_living) }
   end

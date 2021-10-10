@@ -4,7 +4,7 @@ require_relative '../lib/board'
 class TestBoard < Minitest::Test
   def test_initialized_create_cells
     target = Board.new
-    assert_equal Board::SIZE**2, target.cells_size
+    assert_equal Board::CELLS, target.cells_size
   end
 
   def test_initialized_give_life_to_cells
