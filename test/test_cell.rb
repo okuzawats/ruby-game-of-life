@@ -21,19 +21,81 @@ class TestCell < Minitest::Test
     assert_equal false, target.alive?
   end
 
-  def test_peek_next
+  def test_peek_next_is_false_when_1_neighbors_alive_and_is_alive
     target = Cell.new
     target.birth
-    neighbor_1 = Cell.new
-    neighbor_1.birth
-    target.add_neighbor neighbor_1
-    neighbor_2 = Cell.new
-    neighbor_2.birth
-    target.add_neighbor neighbor_2
-    neighbor_3 = Cell.new
-    neighbor_3.birth
-    target.add_neighbor neighbor_3
+    1.times {
+      neighbor = Cell.new
+      neighbor.birth
+      target.add_neighbor neighbor
+    }
+    assert_equal false, target.peek_next
+  end
+
+  def test_peek_next_is_true_when_2_neighbors_alive_and_is_alive
+    target = Cell.new
+    target.birth
+    2.times {
+      neighbor = Cell.new
+      neighbor.birth
+      target.add_neighbor neighbor
+    }
     assert_equal true, target.peek_next
+  end
+
+  def test_peek_next_is_true_when_3_neighbors_alive_and_is_alive
+    target = Cell.new
+    target.birth
+    3.times {
+      neighbor = Cell.new
+      neighbor.birth
+      target.add_neighbor neighbor
+    }
+    assert_equal true, target.peek_next
+  end
+
+  def test_peek_next_is_false_when_4_neighbors_alive_and_is_alive
+    target = Cell.new
+    target.birth
+    4.times {
+      neighbor = Cell.new
+      neighbor.birth
+      target.add_neighbor neighbor
+    }
+    assert_equal false, target.peek_next
+  end
+
+  def test_peek_next_is_false_when_2_neighbors_alive_and_is_not_alive
+    target = Cell.new
+    target.death
+    2.times {
+        neighbor = Cell.new
+        neighbor.birth
+        target.add_neighbor neighbor
+    }
+    assert_equal false, target.peek_next
+  end
+
+  def test_peek_next_is_true_when_3_neighbors_alive_and_is_not_alive
+    target = Cell.new
+    target.death
+    3.times {
+        neighbor = Cell.new
+        neighbor.birth
+        target.add_neighbor neighbor
+    }
+    assert_equal true, target.peek_next
+  end
+
+  def test_peek_next_is_false_when_4_neighbors_alive_and_is_not_alive
+    target = Cell.new
+    target.death
+    4.times {
+      neighbor = Cell.new
+      neighbor.birth
+      target.add_neighbor neighbor
+    }
+    assert_equal false, target.peek_next
   end
 
   def test_add_neighbor

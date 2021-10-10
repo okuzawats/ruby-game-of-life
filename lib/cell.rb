@@ -23,7 +23,7 @@ class Cell
     if alive?
       @is_living_next = (neighbors_alive.size == 2) || (neighbors_alive.size == 3)
     else
-      @is_living_next = (neighbors_alive == 3)
+      @is_living_next = (neighbors_alive.size == 3)
     end
     @is_living_next
   end
