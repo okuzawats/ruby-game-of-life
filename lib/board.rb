@@ -50,7 +50,7 @@ class Board
     (0...HEIGHT).each { |j|
       from = j * HEIGHT
       to = from + WIDTH
-      puts @cells[from...to].map { |cell| cell.printed }.join
+      puts @cells[from...to].map { |cell| cell.as_string }.join
     }
   end
 end

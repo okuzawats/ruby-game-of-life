@@ -32,7 +32,7 @@ class Cell
     @is_living
   end
 
-  def printed
+  def as_string
     alive? ? LIVING_CELL : DEAD_CELL
   end
 end

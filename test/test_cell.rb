@@ -68,13 +68,13 @@ class TestCell < Minitest::Test
     assert_equal false, target.next
   end
 
-  def test_printed_return_X_if_alive
+  def test_as_string_return_X_if_alive
     target = Cell.new(true)
-    assert_equal 'X', target.printed
+    assert_equal 'X', target.as_string
   end
 
-  def test_printed_return_underscore_if_dead
+  def test_as_string_return_underscore_if_dead
     target = Cell.new(false)
-    assert_equal '_', target.printed
+    assert_equal '_', target.as_string
   end
 end
