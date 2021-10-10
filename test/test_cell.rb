@@ -67,4 +67,14 @@ class TestCell < Minitest::Test
     target.peek_next
     assert_equal false, target.next
   end
+
+  def test_printed_return_X_if_alive
+    target = Cell.new(true)
+    assert_equal 'X', target.printed
+  end
+
+  def test_printed_return_underscore_if_dead
+    target = Cell.new(false)
+    assert_equal '_', target.printed
+  end
 end
