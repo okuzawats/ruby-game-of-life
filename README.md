@@ -1,2 +1,3 @@
-![lifegame_ruby](https://user-images.githubusercontent.com/12797442/136687063-b23cea76-44d7-46d2-b811-4acf6b22b532.gif)
+# Lifegame with Ruby
 
+![lifegame_ruby_2](https://user-images.githubusercontent.com/12797442/136687223-fd007831-6819-4ba8-bbdd-cf8a8a5dbc23.gif)
