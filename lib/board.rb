@@ -20,4 +20,30 @@ class Board
   def living_cells_size
     @cells.select { |cell| cell.alive? }.size
   end
+
+  def display
+    # (0..HEIGHT).each { |i|
+    #   (0..WIDTH).each { |j|
+    #     index = i * WIDTH + j
+    #     i - 1 >= 0 || i + 1 < HEIGHT || j - 1 >= 0 || j + 1 < WIDTH
+    #     @cells[index].tap do |cell|
+    #       cell.add_neighbor @cells[index - WIDTH - 1] if (i - 1 >= 0 && j - 1 >= 0)
+    #       cell.add_neighbor @cells[index - WIDTH] if (i - 1 >= 0)
+    #       cell.add_neighbor @cells[index - WIDTH + 1] if (i - 1 >= 0 && j + 1 < WIDTH)
+    #       cell.add_neighbor @cells[index - 1] if (j - 1 >= 0)
+    #       cell.add_neighbor @cells[index + 1] if (j + 1 < WIDTH)
+    #       cell.add_neighbor @cells[index + WIDTH - 1] if (i + 1 < HEIGHT && j - 1 >= 0)
+    #       cell.add_neighbor @cells[index + WIDTH] if (i + 1 < HEIGHT)
+    #       cell.add_neighbor @cells[index + WIDTH + 1] if (i + 1 < HEIGHT && j + 1 < WIDTH)
+    #     end
+    #   }
+    # }
+    (0...HEIGHT).each { |i|
+        (0...WIDTH).each { |j|
+          index = i * WIDTH + j
+          print @cells[index].alive? ? 'X' : '_'
+        }
+        puts ''
+      }
+    end
 end
