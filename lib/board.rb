@@ -5,9 +5,10 @@ class Board
   HEIGHT = 32
   CELLS = WIDTH * HEIGHT
   INITIAL_LIVING_CELLS = 16
+  INITIAL_DEAD_CELLS = CELLS - INITIAL_LIVING_CELLS
 
   def initialize
-    @cells = (Array.new(INITIAL_LIVING_CELLS, true) + Array.new(CELLS - INITIAL_LIVING_CELLS, false))
+    @cells = (Array.new(INITIAL_LIVING_CELLS, true) + Array.new(INITIAL_DEAD_CELLS, false))
       .shuffle
       .map { |is_living| Cell.new(is_living) }
   end
