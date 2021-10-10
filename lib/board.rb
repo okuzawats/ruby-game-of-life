@@ -50,7 +50,7 @@ class Board
     (0...HEIGHT).each { |i|
       (0...WIDTH).each { |j|
         index = i * WIDTH + j
-        print @cells[index].alive? ? 'X' : '_'
+        print @cells[index].display
       }
       puts ''
     }

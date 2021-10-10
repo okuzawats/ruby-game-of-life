@@ -1,4 +1,6 @@
 class Cell
+  LIVING_CELL = 'X'
+  DEAD_CELL = '_'
 
   def initialize(is_living = false)
     @is_living = is_living
@@ -28,5 +30,9 @@ class Cell
     @is_living = @is_living_next
     @is_living_next = false
     @is_living
+  end
+
+  def display
+    alive? ? LIVING_CELL : DEAD_CELL
   end
 end
