@@ -48,11 +48,9 @@ class Board
 
   def display
     (0...HEIGHT).each { |j|
-      (0...WIDTH).each { |i|
-        index = j * WIDTH + i
-        print @cells[index].display
-      }
-      puts ''
+      from = j * HEIGHT
+      to = from + WIDTH
+      puts @cells[from...to].map { |cell| cell.printed }.join
     }
   end
 end
