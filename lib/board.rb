@@ -1,3 +1,4 @@
+require_relative './board_displayer'
 require_relative './cell'
 require_relative './cell_binder'
 
@@ -11,6 +12,7 @@ class Board
   def initialize
     cell_binder = CellBinder.new(INITIAL_LIVING_CELLS, INITIAL_DEAD_CELLS)
     @cells = cell_binder.bind_cells(WIDTH, HEIGHT)
+    @displayer = BoardDisplayer.new(@cells, WIDTH, HEIGHT)
   end
 
   def update_cells
@@ -27,10 +29,6 @@ class Board
   end
 
   def display
-    (0...HEIGHT).each { |j|
-      from = j * HEIGHT
-      to = from + WIDTH
-      puts @cells[from...to].map { |cell| cell.as_string }.join
-    }
+    @displayer.display
   end
 end
