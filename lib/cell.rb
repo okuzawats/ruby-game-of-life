@@ -28,6 +28,12 @@ class Cell
     @is_living_next
   end
 
+  def next
+    @is_living = @is_living_next
+    @is_living_next = false
+    @is_living
+  end
+
   def add_neighbor neighbor
     @neighbors << neighbor
   end

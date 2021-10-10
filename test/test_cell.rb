@@ -63,6 +63,20 @@ class TestCell < Minitest::Test
     assert_equal false, target.peek_next
   end
 
+  def test_next_is_true_when_next_is_true
+    target = Cell.new(true)
+    2.times { target.add_neighbor Cell.new(true) }
+    target.peek_next
+    assert_equal true, target.next
+  end
+
+  def test_next_is_false_when_next_is_false
+    target = Cell.new(true)
+    1.times { target.add_neighbor Cell.new(true) }
+    target.peek_next
+    assert_equal false, target.next
+  end
+
   def test_add_neighbor
     target = Cell.new
     target.add_neighbor Cell.new
