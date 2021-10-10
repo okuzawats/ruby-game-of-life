@@ -1,6 +1,4 @@
 class Cell
-  attr_reader :isLiving
-
   def initialize
     @isLiving = false
   end
@@ -11,5 +9,9 @@ class Cell
 
   def death
     @isLiving = false
+  end
+
+  def alive?
+    @isLiving
   end
 end
