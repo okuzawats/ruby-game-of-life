@@ -21,6 +21,21 @@ class TestCell < Minitest::Test
     assert_equal false, target.alive?
   end
 
+  def test_peek_next
+    target = Cell.new
+    target.birth
+    neighbor_1 = Cell.new
+    neighbor_1.birth
+    target.add_neighbor neighbor_1
+    neighbor_2 = Cell.new
+    neighbor_2.birth
+    target.add_neighbor neighbor_2
+    neighbor_3 = Cell.new
+    neighbor_3.birth
+    target.add_neighbor neighbor_3
+    assert_equal true, target.peek_next
+  end
+
   def test_add_neighbor
     target = Cell.new
     target.add_neighbor Cell.new

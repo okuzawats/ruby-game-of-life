@@ -1,19 +1,31 @@
 class Cell
+
   def initialize
-    @isLiving = false
+    @is_living = false
+    @is_living_next = false
     @neighbors = []
   end
 
   def birth
-    @isLiving = true
+    @is_living = true
   end
 
   def death
-    @isLiving = false
+    @is_living = false
   end
 
   def alive?
-    @isLiving
+    @is_living
+  end
+
+  def peek_next
+    neighbors_alive = @neighbors.select { |cell| cell.alive? }
+    if alive?
+      @is_living_next = (neighbors_alive.size == 2) || (neighbors_alive.size == 3)
+    else
+      @is_living_next = (neighbors_alive == 3)
+    end
+    @is_living_next
   end
 
   def add_neighbor neighbor
