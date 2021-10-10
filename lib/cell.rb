@@ -6,16 +6,12 @@ class Cell
     @neighbors = []
   end
 
-  def birth
-    @is_living = true
-  end
-
-  def death
-    @is_living = false
-  end
-
   def alive?
     @is_living
+  end
+
+  def add_neighbor neighbor
+    @neighbors << neighbor
   end
 
   def peek_next
@@ -32,13 +28,5 @@ class Cell
     @is_living = @is_living_next
     @is_living_next = false
     @is_living
-  end
-
-  def add_neighbor neighbor
-    @neighbors << neighbor
-  end
-
-  def count_neighbor
-    @neighbors.size
   end
 end
