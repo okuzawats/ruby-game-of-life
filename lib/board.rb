@@ -6,13 +6,13 @@ require_relative './envs'
 
 class Board
   def initialize
-    dimens = Dimens.new
+    width, height, size = Dimens.new.size
     envs = Envs.new
     living_cells = envs.initial_cells
-    dead_cells = dimens.size - living_cells
+    dead_cells = size - living_cells
 
-    @cells = CellBinder.new(living_cells, dead_cells).bind_cells(dimens.width, dimens.height)
-    @displayer = BoardDisplayer.new(@cells, dimens.width, dimens.height)
+    @cells = CellBinder.new(living_cells, dead_cells).bind_cells(width, height)
+    @displayer = BoardDisplayer.new(@cells, width, height)
   end
 
   def update_cells
