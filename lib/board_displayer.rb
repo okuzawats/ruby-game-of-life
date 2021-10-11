@@ -11,7 +11,7 @@ class BoardDisplayer
     (0...@height).each do |j|
       from = j * @height
       to = from + @width
-      puts @cells[from...to].map { |cell| cell.as_string }.join
+      puts @cells[from...to].map (&:as_string).join
     end
   end
 end
