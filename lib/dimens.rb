@@ -3,6 +3,6 @@ class Dimens
   HEIGHT = 32
 
   def size
-    [WIDTH, HEIGHT, WIDTH * HEIGHT]
+    [WIDTH, HEIGHT]
   end
 end
