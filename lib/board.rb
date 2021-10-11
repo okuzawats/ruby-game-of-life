@@ -14,8 +14,8 @@ class Board
   end
 
   def update_cells
-    @cells.each { |cell| cell.peek_next }
-    @cells.each { |cell| cell.next }
+    @cells.each(&:peek_next)
+    @cells.each(&:next)
   end
 
   def cells_size
@@ -23,7 +23,7 @@ class Board
   end
 
   def living_cells_size
-    @cells.select { |cell| cell.alive? }.size
+    @cells.select(&:alive?).size
   end
 
   def display
