@@ -13,7 +13,7 @@ class CellBinder
     seeds += Array.new(dead_cells, false)
     @cells = seeds
              .shuffle
-             .map { |is_living| Cell.new(is_living) }
+             .map { |alive| Cell.new(alive) }
   end
 
   def bind_cells
