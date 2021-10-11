@@ -2,15 +2,16 @@ require_relative './board_displayer'
 require_relative './cell'
 require_relative './cell_binder'
 require_relative './dimens'
+require_relative './envs'
 
 class Board
-  INITIAL_LIVING_CELLS = 128
-  INITIAL_DEAD_CELLS = CELLS - INITIAL_LIVING_CELLS
-
   def initialize
     dimens = Dimens.new
-    cell_binder = CellBinder.new(INITIAL_LIVING_CELLS, INITIAL_DEAD_CELLS)
-    @cells = cell_binder.bind_cells(dimens.width, dimens.height)
+    envs = Envs.new
+    living_cells = envs.initial_cells
+    dead_cells = dimens.size - living_cells
+
+    @cells = CellBinder.new(living_cells, dead_cells).bind_cells(dimens.width, dimens.height)
     @displayer = BoardDisplayer.new(@cells, dimens.width, dimens.height)
   end
 
