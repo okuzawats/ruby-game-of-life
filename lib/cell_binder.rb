@@ -6,8 +6,8 @@ class CellBinder
     seeds += Array.new(living_cells, true)
     seeds += Array.new(dead_cells, false)
     @cells = seeds
-          .shuffle
-          .map { |is_living| Cell.new(is_living) }
+             .shuffle
+             .map { |is_living| Cell.new(is_living) }
   end
 
   def bind_cells(width, height)
