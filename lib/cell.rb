@@ -17,11 +17,11 @@ class Cell
   end
 
   def peek_next
-    neighbors_alive = @neighbors.select { |cell| cell.alive? }
-    if alive?
-      @is_living_next = (neighbors_alive.size == 2) || (neighbors_alive.size == 3)
+    neighbors_alive = @neighbors.select(&:alive?).size
+    @is_living_next = if alive?
+      [2, 3].include?(neighbors_alive)
     else
-      @is_living_next = (neighbors_alive.size == 3)
+      neighbors_alive == 3
     end
     @is_living_next
   end
