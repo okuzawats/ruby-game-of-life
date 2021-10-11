@@ -1,10 +1,10 @@
 require_relative './cell'
+require_relative './dimens'
 
 class BoardDisplayer
-  def initialize(cells, width, height)
+  def initialize(cells)
+    @width, @height = Dimens.new.size
     @cells = cells
-    @width = width
-    @height = height
   end
 
   def display

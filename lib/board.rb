@@ -10,7 +10,7 @@ class Board
     living_cells, dead_cells = Envs.new.initial_cells(size)
 
     @cells = CellBinder.new(living_cells, dead_cells).bind_cells(width, height)
-    @displayer = BoardDisplayer.new(@cells, width, height)
+    @displayer = BoardDisplayer.new(@cells)
   end
 
   def update_cells
