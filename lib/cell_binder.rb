@@ -11,8 +11,8 @@ class CellBinder
   end
 
   def bind_cells(width, height)
-    (0...height).each { |i|
-      (0...width).each { |j|
+    (0...height).each do |i|
+      (0...width).each do |j|
         index = i * width + j
         i - 1 >= 0 || i + 1 < height || j - 1 >= 0 || j + 1 < width
         @cells[index].tap do |cell|
@@ -25,8 +25,8 @@ class CellBinder
           cell.add_neighbor @cells[index + width] if (i + 1 < height)
           cell.add_neighbor @cells[index + width + 1] if (i + 1 < height && j + 1 < width)
         end
-      }
-    }
+      end
+    end
     @cells
   end
 end
