@@ -10,7 +10,7 @@ class Board
     @displayer = BoardDisplayer.new(@cells)
   end
 
-  def update
+  def next
     @cells.each(&:peek_next)
     @cells.each(&:next)
   end

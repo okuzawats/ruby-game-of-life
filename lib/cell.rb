@@ -2,6 +2,9 @@ class Cell
   LIVING_CELL = 'X'
   DEAD_CELL = '_'
 
+  ALIVE_IF_ALIVE_AND_NEIGHBORS = [2, 3].freeze
+  ALIVE_IF_DEAD_AND_NEIGHBORS = [3].freeze
+
   def initialize(is_living = false)
     @is_living = is_living
     @is_living_next = false
@@ -19,9 +22,9 @@ class Cell
   def peek_next
     neighbors_alive = @neighbors.select(&:alive?).size
     @is_living_next = if alive?
-      [2, 3].include?(neighbors_alive)
+      ALIVE_IF_ALIVE_AND_NEIGHBORS.include?(neighbors_alive)
     else
-      neighbors_alive == 3
+      ALIVE_IF_DEAD_AND_NEIGHBORS.include?(neighbors_alive)
     end
     @is_living_next
   end
