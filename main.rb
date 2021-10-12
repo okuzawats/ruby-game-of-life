@@ -8,6 +8,6 @@ board = Board.new
 while true
   system CLEAR
   board.display
-  board.update
+  board.next
   sleep ONE_SECOND
 end
