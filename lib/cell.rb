@@ -2,8 +2,8 @@ class Cell
   LIVING_CELL = 'X'
   DEAD_CELL = '_'
 
-  ALIVE_IF_ALIVE_AND_NEIGHBORS = [2, 3]
-  ALIVE_IF_DEAD_AND_NEIGHBORS = [3]
+  ALIVE_IF_ALIVE_AND_NEIGHBORS = [2, 3].freeze
+  ALIVE_IF_DEAD_AND_NEIGHBORS = [3].freeze
 
   def initialize(is_living = false)
     @is_living = is_living
