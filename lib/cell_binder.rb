@@ -17,18 +17,18 @@ class CellBinder
   end
 
   def bind_cells
-    (0...@height).each do |i|
-      (0...@width).each do |j|
-        index = i * @width + j
+    (0...@height).each do |j|
+      (0...@width).each do |i|
+        index = j * @width + i
         @cells[index].tap do |cell|
-          cell.add_neighbor @cells[index - @width - 1] if i - 1 >= 0 && j - 1 >= 0
-          cell.add_neighbor @cells[index - @width] if i - 1 >= 0
-          cell.add_neighbor @cells[index - @width + 1] if i - 1 >= 0 && j + 1 < @width
-          cell.add_neighbor @cells[index - 1] if j - 1 >= 0
-          cell.add_neighbor @cells[index + 1] if j + 1 < @width
-          cell.add_neighbor @cells[index + @width - 1] if i + 1 < @height && j - 1 >= 0
-          cell.add_neighbor @cells[index + @width] if i + 1 < @height
-          cell.add_neighbor @cells[index + @width + 1] if i + 1 < @height && j + 1 < @width
+          cell.add_neighbor @cells[index - @width - 1] if j - 1 >= 0 && i - 1 >= 0
+          cell.add_neighbor @cells[index - @width] if j - 1 >= 0
+          cell.add_neighbor @cells[index - @width + 1] if j - 1 >= 0 && i + 1 < @width
+          cell.add_neighbor @cells[index - 1] if i - 1 >= 0
+          cell.add_neighbor @cells[index + 1] if i + 1 < @width
+          cell.add_neighbor @cells[index + @width - 1] if j + 1 < @height && i - 1 >= 0
+          cell.add_neighbor @cells[index + @width] if j + 1 < @height
+          cell.add_neighbor @cells[index + @width + 1] if j+ 1 < @height && i + 1 < @width
         end
       end
     end
