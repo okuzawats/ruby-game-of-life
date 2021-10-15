@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
-      - name: run board test
-        run: ruby test/test_board.rb
       - name: run cell test
         run: ruby test/test_cell.rb
+      - name: run cell generator test
+        run: ruby test/test_cell_generator.rb

@@ -1,12 +1,12 @@
 require_relative './board_displayer'
 require_relative './cell'
-require_relative './cell_binder'
+require_relative './cell_generator'
 require_relative './dimens'
 require_relative './envs'
 
 class Board
   def initialize
-    @cells = CellBinder.new.bind_cells
+    @cells = CellGenerator.new.provide
     @displayer = BoardDisplayer.new(@cells)
   end
 
@@ -17,15 +17,5 @@ class Board
 
   def display
     @displayer.display
-  end
-
-  # visible for testing
-  def cells_size
-    @cells.size
-  end
-
-  # visible for testing
-  def living_cells_size
-    @cells.select(&:alive?).size
   end
 end
