@@ -2,12 +2,33 @@ require_relative './cell'
 require_relative './dimens'
 require_relative './envs'
 
-class CellBinder
+class CellGenerator
   def initialize
     @width, @height = Dimens.new.size
+    @cells = []
+    generate
+    bind
+  end
+
+  def provide
+    @cells
+  end
+
+  # visible for testing
+  def cells_size
+    @cells.size
+  end
+
+  # visible for testing
+  def living_cells_size
+    @cells.select(&:alive?).size
+  end
+
+  private
+
+  def generate
     living_cells = Envs.new.initial_cells
     dead_cells = @width * @height - living_cells
-
     seeds = []
     seeds += Array.new(living_cells, true)
     seeds += Array.new(dead_cells, false)
@@ -16,7 +37,7 @@ class CellBinder
              .map { |alive| Cell.new(alive) }
   end
 
-  def bind_cells
+  def bind
     (0...@height).each do |j|
       (0...@width).each do |i|
         index = j * @width + i
@@ -32,16 +53,5 @@ class CellBinder
         end
       end
     end
-    @cells
-  end
-
-  # visible for testing
-  def cells_size
-    @cells.size
-  end
-
-  # visible for testing
-  def living_cells_size
-    @cells.select(&:alive?).size
   end
 end

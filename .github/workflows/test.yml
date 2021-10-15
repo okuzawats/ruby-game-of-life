@@ -14,5 +14,5 @@ jobs:
       - uses: ruby/setup-ruby@v1
       - name: run cell test
         run: ruby test/test_cell.rb
-      - name: run cell binder test
-        run: ruby test/test_cell_binder.rb
+      - name: run cell generator test
+        run: ruby test/test_cell_generator.rb
