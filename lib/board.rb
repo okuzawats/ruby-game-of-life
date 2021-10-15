@@ -18,14 +18,4 @@ class Board
   def display
     @displayer.display
   end
-
-  # visible for testing
-  def cells_size
-    @cells.size
-  end
-
-  # visible for testing
-  def living_cells_size
-    @cells.select(&:alive?).size
-  end
 end
